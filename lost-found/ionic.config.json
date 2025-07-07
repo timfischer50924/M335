@@ -1,0 +1,7 @@
+{
+  "name": "lost-found",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
