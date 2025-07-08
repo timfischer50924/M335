@@ -120,24 +120,26 @@ const EntryFormPage: React.FC = () => {
   return (
     <IonPage className="main">
       <IonHeader
-      className="main">
+        className="main">
         <IonToolbar>
           <IonTitle>Neuer Eintrag</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding main">
         <IonItem
-        className="main">
+          className="main">
           <md-outlined-text-field
+          required
             label="Titel"
             value={title}
-            style={{ width: '100%' , margin: '20px' }}
+            style={{ width: '100%', margin: '20px' }}
             onInput={(e: any) => setTitle(e.target.value)}
           />
         </IonItem>
         <IonItem
-        className="main">
+          className="main">
           <md-outlined-text-field
+          required
             label="Beschreibung"
             value={description}
             style={{ width: '100%', margin: '20px' }}
@@ -145,43 +147,42 @@ const EntryFormPage: React.FC = () => {
           />
         </IonItem>
         <IonItem
-        className="main">
-          <IonLabel position="floating">Datum</IonLabel>
+          className="main">
           <IonDatetime
-          className="main"
+            className="main"
 
             presentation="date-time"
             value={date}
             onIonChange={e => setDate((e as any).detail.value!)}
           />
         </IonItem>
-        <IonItem
-        className="main">
-          <IonLabel>Gefunden?</IonLabel>
-          <md-switch
-            aria-label="Wi-Fi"
-
-            checked={found} onIonChange={e => setFound(e.detail.checked)} />
+        <IonItem lines="none" className="photo-upload main">
+          <button className="photo-button" onClick={takePhoto}>
+            <IonIcon icon={camera} className="icon" />
+            <span className="text">Bild</span>
+          </button>
+          <div className={`photo-status ${photoWebPath ? 'has-photo' : ''}`}>
+            {photoWebPath ? '1 Foto' : 'Keine Datei'}
+          </div>
         </IonItem>
 
-        <IonItem lines="none"
-          className="main"
-          >
-          <IonButton slot="start" onClick={takePhoto}>
-            <IonIcon slot="icon-only" icon={camera} />
-          </IonButton>
-          {photoWebPath && (
-            <IonImg
-              src={photoWebPath}
-              style={{ width: '80px', height: '80px', marginLeft: '1em' }}
-            />
-          )}
+        <IonItem lines="none" className="found-toggle main">
+          <label className="toggle-label ">{found ? 'Gefunden' : 'Verloren'}</label>
+          <md-switch
+            checked={found}
+            onChange={(e: any) => setFound(e.target.selected)}
+            aria-label="Zustand"
+          />
         </IonItem>
 
         <IonFab vertical="bottom" horizontal="center" slot="fixed">
-          <IonFabButton onClick={saveEntry}>
+          <md-filled-icon-button
+          class="fab-button"
+            mini
+            label=""
+          onClick={saveEntry}>
             <IonIcon icon={save} />
-          </IonFabButton>
+          </md-filled-icon-button>
         </IonFab>
       </IonContent>
     </IonPage>
