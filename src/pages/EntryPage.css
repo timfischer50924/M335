@@ -1,0 +1,68 @@
+.main {
+    --background: var(--md-sys-color-primary);
+}
+
+.main md-switch {
+    --md-switch-selected-track-color: #4b43634b;
+    --md-switch-selected-handle-color: #6750A4;
+}
+
+.photo-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.photo-button {
+    background-color: #e6dffd;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: #1c1b1f;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.photo-button .icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.photo-status {
+    background-color: #e4e0e4;
+    border-radius: 9999px;
+    padding: 10px 16px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #6f6f6f;
+}
+
+.photo-status.has-photo {
+    background-color: #4b2e83;
+    /* dunkles Violett wie im Screenshot */
+    color: #ffffff;
+}
+
+.found-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    
+}
+
+.toggle-label {
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.vio {
+    background-color: #4b2e83;
+}

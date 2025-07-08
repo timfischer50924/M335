@@ -7,10 +7,17 @@
 
 
 
+Remove-Item "$env:USERPROFILE\.gradle" -Recurse -Force
+[System.Environment]::SetEnvironmentVariable("Path", "$env:Path;${env:JAVA_HOME}\bin", "User")
+$env:JAVA_HOME
+where java
+java -version
+C:\Users\a929920\Github\M335\android\local.properties
+sdk.dir=C:\\Users\\a929920\\AppData\\Local\\Android\\Sdk
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
-
-
+npm install @capacitor/android
 $env:Path += ";C:\Users\a929920\AppData\Roaming\npm"
 ionic serve  
 ionic build
