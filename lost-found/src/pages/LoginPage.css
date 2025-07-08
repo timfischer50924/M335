@@ -1,0 +1,46 @@
+.login-container {
+  --background: var(--md-sys-color-primary);
+  height: 100%;
+  margin: 0;
+  padding: 0 16px;
+}
+
+.login-container::part(scroll) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-wrapper {
+  width: 100;
+  height: 100;
+  border-radius: 50%;
+  background-color: var(--md-sys-color-secondary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.avatar-wrapper md-icon {
+  font-size: 40px;
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+md-filled-text-field {
+  width: 280px;
+  margin-bottom: 16px;
+}
+
+
+.fab-button {
+  --md-sys-color-primary: var(--md-sys-color-secondary);
+  position: relative;
+  margin-top: 32px;
+}
+
+.fab-button md-icon {
+  color: var(--md-sys-color-on-secondary);
+  font-size: 24px;
+}

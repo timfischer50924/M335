@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import { IonApp, setupIonicReact, IonRouterOutlet } from '@ionic/react'          // <-- IonRouterOutlet hierher
 import { IonReactRouter } from '@ionic/react-router'
 import { Route, Redirect, Switch } from 'react-router-dom'                              // <-- nur Route/Redirect
-
+import '../index.css';
 import LoginPage from './pages/LoginPage'
 import MainTabs from '../src/pages/MainTabs'
+import EntryDetailPage from './pages/EntryDetailPage'
 setupIonicReact()
 
 const App: React.FC = () => {
@@ -18,6 +19,9 @@ const App: React.FC = () => {
           <Route path="/login" exact>
             <LoginPage onLogin={() => setAuthenticated(true)} />
           </Route>
+          <Route path="/entry/:id" exact component={EntryDetailPage} />
+          
+
           <Route path="/tabs">
             { authenticated
               ? <MainTabs onLogout={() => setAuthenticated(false)} />

@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package io.ionic.lost_found;
 
 import com.getcapacitor.BridgeActivity;
 

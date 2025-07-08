@@ -14,6 +14,8 @@ import { map, list, logOut } from 'ionicons/icons';
 import MapPage from './MapPage';
 import EntryPage from './EntryPage';
 import Logout from './LogoutPage';
+import EntriesPage from './EntriesPage';
+import EntryDetailPage from './EntryDetailPage';
 
 interface Props {
   onLogout(): void;
@@ -23,7 +25,8 @@ const MainTabs: React.FC<Props> = ({ onLogout }) => (
   <IonTabs>
     <IonRouterOutlet>
       <Route path="/tabs/tab1" component={MapPage} exact />
-      <Route path="/tabs/tab2" component={EntryPage} exact />
+      <Route path="/tabs/tab2" component={EntriesPage} exact />
+      <Route path="/tabs/tab4" component={EntryPage} exact />
       <Route
         path="/tabs/tab3"
         exact
