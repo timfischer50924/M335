@@ -140,7 +140,7 @@ const EntryFormPage: React.FC = () => {
         <IonItem
           className="main">
           <md-outlined-text-field
-          required
+            required
             label="Beschreibung"
             value={description}
             style={{ width: '100%', margin: '20px' }}
@@ -151,7 +151,6 @@ const EntryFormPage: React.FC = () => {
           className="main">
           <IonDatetime
             className="main"
-
             presentation="date-time"
             value={date}
             onIonChange={e => setDate((e as any).detail.value!)}
