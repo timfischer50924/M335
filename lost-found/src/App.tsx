@@ -7,6 +7,7 @@ import '../index.css';
 import LoginPage from './pages/LoginPage'
 import MainTabs from '../src/pages/MainTabs'
 import EntryDetailPage from './pages/EntryDetailPage'
+import EditEntryPage   from './pages/EditEntryPage'
 setupIonicReact()
 
 const App: React.FC = () => {
@@ -20,7 +21,7 @@ const App: React.FC = () => {
             <LoginPage onLogin={() => setAuthenticated(true)} />
           </Route>
           <Route path="/entry/:id" exact component={EntryDetailPage} />
-          
+          <Route path="/edit/:id"  component={EditEntryPage}   exact />
 
           <Route path="/tabs">
             { authenticated

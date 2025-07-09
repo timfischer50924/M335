@@ -19,7 +19,7 @@ import {
   IonIcon,
   IonBadge
 } from '@ionic/react'
-import { useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
 import { arrowForward } from 'ionicons/icons'
 import { Filesystem, Directory } from '@capacitor/filesystem'
 import { Capacitor } from '@capacitor/core'
@@ -27,11 +27,12 @@ import { dbService, entry as Entry } from '../services/DbService'
 
 const EntryDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
+  const history = useHistory()
   const [entry, setEntry] = useState<Entry | null>(null)
   const [photoWebPath, setPhotoWebPath] = useState<string>()
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       await dbService.init()
       const all = await dbService.getAllEntries()
       const found = all.find(e => e.id === Number(id)) ?? null
@@ -48,8 +49,8 @@ const EntryDetailPage: React.FC = () => {
 
   if (!entry) {
     return (
-      <IonPage>
-        <IonHeader>
+      <IonPage style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
+        <IonHeader style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
           <IonToolbar>
             <IonButtons slot="start">
               <IonBackButton defaultHref="/tabs/tab2" />
@@ -67,34 +68,34 @@ const EntryDetailPage: React.FC = () => {
   }
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
+    <IonPage style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
+      <IonHeader style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
+        <IonToolbar style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
           <IonButtons slot="start">
             <IonBackButton defaultHref="/tabs/tab2" />
           </IonButtons>
-          <IonTitle>Details</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <IonCard>
-          <IonCardHeader>
+      <IonContent className="ion-padding" style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
+        <IonCard style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
+          <IonCardHeader style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
             <IonCardTitle>{entry.title || '<kein Titel>'}</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonItem lines="none">
+           
+            <IonItem lines="none" style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
               <IonLabel>
                 <h3>Beschreibung</h3>
                 <p>{entry.description || '-'}</p>
               </IonLabel>
             </IonItem>
-            <IonItem lines="none">
+            <IonItem lines="none" style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
               <IonLabel>
                 <h3>Datum</h3>
                 <p>{new Date(entry.date!).toLocaleString()}</p>
               </IonLabel>
             </IonItem>
-            <IonItem lines="none">
+            <IonItem lines="none" style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
               <IonLabel>
                 <h3>Status</h3>
                 <IonBadge color={entry.found ? 'success' : 'danger'}>
@@ -108,16 +109,25 @@ const EntryDetailPage: React.FC = () => {
                 style={{ width: '100%', marginTop: '1em' }}
               />
             )}
-            {entry.lat != null && entry.lon != null && (
-              <IonButton
-                fill="outline"
-                expand="block"
-                onClick={openInMaps}
-                style={{ marginTop: '1em' }}
-              >
-                In Karte öffnen <IonIcon slot="end" icon={arrowForward} />
-              </IonButton>
-            )}
+             <IonButton
+              expand="block"
+              onClick={openInMaps}
+              style={{ marginTop: '1em', '--background': '#6750A4' } as React.CSSProperties}
+            >
+              In Karte öffnen <IonIcon slot="end" icon={arrowForward} />
+            </IonButton>
+            <IonButton
+              expand="block"
+              fill="outline"
+              onClick={() => history.push(`/edit/${entry.id}`)}
+              style={{
+                marginBottom: '1em',
+                '--border-color': '#6750A4',
+                '--color': '#6750A4'
+              } as React.CSSProperties}
+            >
+              Bearbeiten
+            </IonButton>
           </IonCardContent>
         </IonCard>
       </IonContent>

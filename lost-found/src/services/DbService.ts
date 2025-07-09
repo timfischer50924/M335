@@ -74,7 +74,7 @@ class DatabaseService {
     }
     async getEntry(id: number): Promise<entry | null> {
         if (!this.db) return null
-        const res = await this.db.query('SELECT * FROM entries WHERE id = ?', [ id ])
+        const res = await this.db.query('SELECT * FROM entries WHERE id = ?', [id])
         return res.values?.[0] as entry ?? null
     }
     async getAllEntries(): Promise<entry[]> {
@@ -97,7 +97,30 @@ class DatabaseService {
         if (!this.db) this.init();
         await this.db!.run(`DELETE FROM entries WHERE id = ?;`, [id]);
     }
-
+    async updateEntry(e: entry) {
+        if (!this.db) await this.init();
+        await this.db?.run(
+            `UPDATE entries
+         SET title       = ?,
+             description = ?,
+             date        = ?,
+             found       = ?,
+             image       = ?,
+             lat         = ?,
+             lon         = ?
+       WHERE id = ?;`,
+            [
+                e.title,
+                e.description,
+                e.date!,
+                e.found ? 1 : 0,
+                e.image ?? null,
+                e.lat ?? null,
+                e.lon ?? null,
+                e.id
+            ]
+        );
+    }
     async close() {
         if (this.db) {
             await this.sqllite.closeConnection('lost_found_db', false);
