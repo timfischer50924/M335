@@ -23,3 +23,6 @@ ion-content {
   margin: 0;
   padding: 0;
 }
+ion-list {
+  --background: #FEF7FF;
+}

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">lost-found</string>
-    <string name="title_activity_main">lost-found</string>
-    <string name="package_name">io.ionic.lost_found</string>
-    <string name="custom_url_scheme">io.ionic.lost_found</string>
-</resources>

@@ -77,26 +77,26 @@ const EntriesPage: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Meine Einträge</IonTitle>
+        <IonToolbar  style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
           <IonButtons slot="end">
             <IonButton onClick={loadEntries}>Refresh</IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent  style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
         <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
           <IonRefresherContent />
         </IonRefresher>
 
-        <IonList>
+        <IonList style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
+
           {entries.map(e => (
-            <IonItem key={e.id} button onClick={() => openDetail(e.id!)}>
-              <IonLabel className="ion-text-wrap">
-                <IonGrid>
-                  <IonRow className="ion-align-items-center entry-row">
+            <IonItem key={e.id} button onClick={() => openDetail(e.id!)} style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
+              <IonLabel className="ion-text-wrap" style={{background: '#FEF7FF'}}>
+                <IonGrid style={{background: '#FEF7FF'}}>
+                  <IonRow className="ion-align-items-center entry-row" style={{background: '#FEF7FF'}}>
                     {isLandscape && imagePaths[e.id!] && (
-                      <IonCol size="auto">
+                      <IonCol size="auto" style={{background: '#FEF7FF'}}>
                         <IonImg
                           src={imagePaths[e.id!]}
                           alt="Bild"
@@ -104,7 +104,7 @@ const EntriesPage: React.FC = () => {
                         />
                       </IonCol>
                     )}
-                    <IonCol>
+                    <IonCol style={{ '--background': '#FEF7FF' } as React.CSSProperties}>
                       <h2>{e.title || '<kein Titel>'}</h2>
                       <p>{new Date(e.date!).toLocaleString()}</p>
                       {isLandscape && <p>{e.description || '-'}</p>}

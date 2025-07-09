@@ -1,0 +1,16 @@
+ion-tab-button {
+  --background: #F3EDF7;
+  --background-focused: transparent;
+  --background-activated: transparent;
+  --ripple-color: rgba(103, 80, 164, 0.3);
+  --ripple-duration: 600ms;
+  border-radius: 0;
+  overflow: hidden;
+}
+ion-tab-button.ion-selected {
+  --color-selected: #FFFFFF;
+  --background: #6750A4;
+}
+ionTabBar{
+  background: #F3EDF7;
+}

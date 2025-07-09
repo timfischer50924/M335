@@ -107,7 +107,13 @@ const EntryFormPage: React.FC = () => {
     }
     await dbService.addEntry(newEntry)
 
-    presentToast({ message: 'Eintrag gespeichert', color: 'success', duration: 1500 })
+    presentToast({
+      header: 'Erfolg',
+      message: 'Eintrag gespeichert',
+      duration: 1500,
+      position: 'top',
+      cssClass: 'custom-toast'
+    })
     // Form zurücksetzen
     setTitle('')
     setDescription('')
@@ -118,14 +124,9 @@ const EntryFormPage: React.FC = () => {
   }
 
   return (
-    <IonPage className="main">
-      <IonHeader
-        className="main">
-        <IonToolbar>
-          <IonTitle>Neuer Eintrag</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className="ion-padding main">
+    <IonPage className="main centered">
+      
+      <IonContent className="ion-padding main centered">
         <IonItem
           className="main">
           <md-outlined-text-field

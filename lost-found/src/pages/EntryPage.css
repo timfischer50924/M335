@@ -66,3 +66,12 @@
 .vio {
     background-color: #4b2e83;
 }
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.custom-toast {
+  --background: #F3EDF7;
+  --color: #000;
+}

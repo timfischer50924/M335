@@ -72,7 +72,11 @@ class DatabaseService {
             false
         );
     }
-
+    async getEntry(id: number): Promise<entry | null> {
+        if (!this.db) return null
+        const res = await this.db.query('SELECT * FROM entries WHERE id = ?', [ id ])
+        return res.values?.[0] as entry ?? null
+    }
     async getAllEntries(): Promise<entry[]> {
         if (!this.db) await this.init();
         const res = await this.db!.query('SELECT * FROM entries;');
